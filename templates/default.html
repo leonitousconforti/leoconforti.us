@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>$title$</title>
+    $if(description)$
+    <meta name="description" content="$description$">
+    $endif$
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/clay.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+
+    <!-- open graph -->
+    <meta property="og:title" content="$title$" />
+    $if(description)$
+    <meta property="og:description" content="$description$" />
+    $endif$
+
+    $if(preview)$
+    <meta property="og:image" content="$preview$" />
+    $else$
+    $if(latest-preview)$
+    <meta property="og:image" content="$latest-preview$" />
+    $endif$
+    $endif$
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="logo"><a href="/">romes</a></li>
+        <li><a href="/posts.html">blog</a></li>
+        <li>music</li>
+        <li><a href="/publications.html">publications &amp; talks</a></li>
+        <li class="hidden-small"><a href="https://github.com/leonitousconforti" target="_blank">github</a></li>
+        <li class="hidden-small"><a href="https://gitlab.haskell.org/alt-romes" target="_blank">ghc</a></li>
+      </ul>
+    </nav>
+    <main>
+      $body$
+    </main>
+    <footer>
+        <small>
+            Leo Conforti &copy; 2024
+        </small>
+    </footer>
+  </body>
+</html>

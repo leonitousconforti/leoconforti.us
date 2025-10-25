@@ -1,0 +1,7 @@
+$partial("templates/header.html")$
+$if(alert)$
+<p class="alert $if(alert-type)$$alert-type$$endif$">$alert$</p>
+$endif$
+<article>
+  $body$
+</article>

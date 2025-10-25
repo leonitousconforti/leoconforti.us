@@ -1,0 +1,76 @@
+---
+title: Leo's Musings
+
+description: A, hopefully, interdisciplinary blog from a TypeScript and Effect-TS enthusiast.
+
+---
+
+<style>
+    .columns>aside h3:first-child {
+        margin-top: 0.5em;
+    }
+
+    .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap-reverse;
+    }
+
+    .preview {
+        display: block;
+        margin: auto;
+    }
+
+    @media screen and (min-width: 800px) {
+        .preview {
+            width: 32rem;
+            float: right;
+            margin: 1rem 0 0.5rem 1rem;
+        }
+
+        .preview>img {
+            width: 32rem;
+            height: 26rem;
+        }
+    }
+
+    section.top p a:visited {
+        color: var(--link);
+    }
+
+    section.top p a:active {
+        color: var(--link-active);
+    }
+</style>
+
+<header>
+    <h1>Welcome to Leo's <span>Musings</span></h1>
+</header>
+
+<section class="top">
+    <p>
+        I work at <a href="https://well-typed.com/">Well-Typed</a> as part of the <a
+            href="https://gitlab.haskell.org/ghc/ghc">Glasgow Haskell Compiler</a> Team.
+        I've got a Master's degree from Faculdade de Ciências e Tecnologia in Lisbon --
+        the thesis was on type-checking linear types in GHC's Core and throughout its optimisation pipeline.
+    </p>
+
+    <p>
+        I try to write interdisciplinary articles, am a Haskell enthusiast and GHC
+        contributor. Besides work, I'm developing a language to design distributed
+        algorithms, a shader-centric and type-heavy 3d renderer / game engine, trying
+        to get e-graphs into GHC, and recently have been working on <a href="https://www.kanjideck.com">a deck of cards
+            to learn Japanese</a>. You can find
+        below my latests posts.
+    </p>
+
+    <figure class="preview">
+        <a href="$latest-preview-url$"><img src="$latest-preview$" alt="$latest-preview-desc$"></a>
+        <figcaption>Fig 1. $latest-preview-desc$</figcaption>
+    </figure>
+
+    <!-- <h1>Latest posts</h1> -->
+    $partial("templates/posts.html")$
+
+</section>

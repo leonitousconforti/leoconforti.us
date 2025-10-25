@@ -1,0 +1,19 @@
+# hakyll
+_site
+_cache
+
+# cabal
+dist
+dist-*
+cabal.project.local
+cabal.project.local~
+
+# nix
+result
+result-*
+
+# direnv
+.direnv
+
+# Banish DS_Store files
+.DS_Store

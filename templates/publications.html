@@ -1,0 +1,26 @@
+$for(publications)$
+  <article class="post">
+    <header>
+      <h3>
+        <a href="$url$" style="text-decoration:underline">$title$ <span style="font-family: monospace">&#x2197;</span></a>
+        $if(notes)$
+          <span style="font-size: 0.85rem; font-weight: normal">($notes$)</span>
+        $endif$
+      </h3>
+      <div>
+        $conference$
+      </div>
+      <div class="post-metadata">
+        <time>$year$</time>
+        &nbsp;
+        $authors$
+      </div>
+    </header>
+    <section>
+      <p>$abstract$</p>
+      $if(video)$
+      <iframe style="width: 100%; aspect-ratio: 16/9" src="$video$" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      $endif$
+    </section>
+  </article>
+$endfor$

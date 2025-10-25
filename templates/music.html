@@ -1,0 +1,18 @@
+$for(albums)$
+  <article class="post">
+    <header>
+    $if(mark)$
+      <h3>$title$ *</h3>
+    $else$
+      <h3>$title$</h3>
+    $endif$
+      <div class="post-metadata">
+        <time>$year$</time>
+      </div>
+    </header>
+    <section>
+      <p>$artist$</p>
+    </section>
+  </article>
+$endfor$
+

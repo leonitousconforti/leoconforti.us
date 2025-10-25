@@ -1,0 +1,16 @@
+$for(posts)$
+  <article class="post">
+    <header>
+      <h3>
+        <a href="$url$">$title$</a>
+      </h3>
+      <div class="post-metadata">
+        <time>$date$</time>
+        <ul class="inline-tags">$tags$</ul>
+      </div>
+    </header>
+    <section>
+      <p>$description$</p>
+    </section>
+  </article>
+$endfor$

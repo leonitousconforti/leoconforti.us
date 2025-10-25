@@ -1,0 +1,447 @@
+:root {
+  /* Note [var(--xfont) doesn't work]
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   *
+   * Unfortunately, CSS custom properties don't seem to work with comma
+   * separated lists of properties, so they don't work as font macros.
+   *
+   * To use a font-stack, inline its definition with a comment pointing to the
+   * correct would-be variable...
+   *
+   * (https://modernfontstacks.com/)
+   *
+   * */
+
+  /* Transitional */
+  /* --xfont-main: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; */
+
+  /* Geometric Humanist */
+  /* --xfont-heading: Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif; */
+
+  /* Classical Humanist */
+  --xfont-heading: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+
+  /* Old-style */
+  --xfont-main: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+
+  /* Monospace Code */
+  --xfont-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  /* Cursive */
+  --xfont-cursive: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+}
+
+/* :root {
+  --black: black;
+  --link: blue;
+  --link-active: red;
+  --link-hover: green;
+  --link-visited: purple;
+  --accent-1: orange;
+  --gray: gray;
+  --background: white;
+  --info: skyblue;
+} */
+
+:root {
+  --black: #241623; /* dark_purple */
+  --gray: #706C61;
+  --background: white;
+
+  --accent-1: #FF9F1C;
+  --accent-2: #D27E99;
+  --accent-3a: #D00000;
+  --accent-3b: #3E2F5B;
+  --accent-4: #457b9d;
+  --accent-4-light: #E3F2FB;
+  --accent-4-oppose: #F6B563;
+  --accent-4-pallete-1:#F68963;
+  --accent-4-pallete-2:#F6CF63;
+  /* TODO: Try generating palletes from images */
+
+  --info:         var(--accent-4);
+
+  --link:         var(--accent-4);
+  --link-active:  var(--accent-1);
+  --link-visited: var(--accent-2); /* or accent-3 */
+  /* --link-hover: black; */
+}
+
+
+
+div.sourceCode {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; /* --xfont-code */
+  box-sizing: border-box;
+  padding: 0.75em;
+  border-radius: 2px;
+  border: 1px solid var(--gray);
+}
+
+code:not(.sourceCode) {
+  background-color: #f8f8f8;
+  border-radius: 2px;
+  padding: 0.04em 0.25em;
+}
+
+html {
+  /* background-image: url("/images/us.jpeg"); */
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif; /* --xfont-main */
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  background: var(--background);
+  color: var(--black);
+}
+
+h1 a {
+  color: var(--link);
+}
+h1 a:visited {
+  color: var(--link); /* clear visited for links in headings */
+}
+
+body > main {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 0em 1em 2.5em 1em; /* T R B L */
+  /* font-size: 105%; */
+}
+
+/*
+@media only screen and (max-width: 768px) {
+  body > main {
+      font-size: 100%; /1* Otherwise we can only have like 5 words per line *1/
+  }
+}
+*/
+
+/* uls without the default settings */
+ul.tags, ul.inline-tags, .toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif; /* --xfont-heading */
+}
+
+h1,h2,h3 {
+  margin-top: 1.75rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link);
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: var(--link-visited);
+}
+a:active {
+  color: var(--link-active);
+}
+
+blockquote {
+  border-left: 5px solid var(--accent-4);
+  background-color: var(--accent-4-light);
+  margin-left: 0px;
+  padding: 0.1em 1em;
+}
+
+.header-section-number {
+  color: var(--accent-1);
+  margin-right: 0.25em;
+}
+
+kbd {
+    padding: 0.05em 0.4em;
+    border-radius: 3px;
+    border: 1px solid var(--gray);
+    background-color: var(--code-bg);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Figures
+   ------- */
+
+figure {
+    text-align:center;
+}
+
+figcaption {
+    text-align: center;
+}
+
+img {
+    box-sizing: border-box;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid var(--gray);
+    margin:auto;
+
+}
+
+/* Header
+   ------ */
+
+main > header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  main > header {
+      padding: 2em 1em; /* Smaller side padding on smaller devices */
+  }
+}
+
+main > header div.title {
+  display: flex;
+  align-items: flex-end;
+  gap: 1em;
+}
+
+main > header > div.title > h1,
+main > header > div.title > p {
+  margin: 1em 0;
+}
+
+main > header > .description {
+  margin-top: 0;
+  max-width: 50rem;
+}
+
+/** Header Alerts **/
+.alert {
+    border: 1px solid var(--gray);
+    padding: 0.75em;
+    border-radius: 0.2em;
+}
+
+.alert.info {
+    /* background: var(--info); */
+    border: 1px solid var(--info);
+    color: var(--info);
+}
+
+/* Navbar
+   ------ */
+
+body > nav {
+  /* font-family: ; */
+  /* border-bottom: 1px solid black; */
+}
+
+body > nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem 2rem;
+
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+body > nav a {
+  /* color: var(--accent-2); */
+  color: var(--accent-2);
+}
+body > nav a:hover {
+  text-decoration: none; /* nav links don't get hovered */
+}
+body > nav a:visited {
+  color: var(--accent-2); /* nav links don't get visited */
+}
+/* body > nav a:active { */
+/*   color: var(--link-active); /1* re-set link-active *1/ */
+/* } */
+
+/* Tags
+   ---- */
+ul.tags
+/* , ul.inline-tags */
+{
+    font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+}
+
+ul.tags {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  gap: 0.75em;
+}
+
+ul.tags > li {
+  color: var(--link);
+  position: relative;
+}
+
+/* Tags skewed thick underline */
+/* ---------------------------
+ul.tags > li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+  z-index: -1;
+  transform: skew(-22deg) scaleX(0);
+  transform-origin: center;
+}
+
+ul.tags > li:hover::before,
+ul.tags > li:focus::before {
+  transform: skew(-22deg) scaleX(0.8) translateX(0.3rem);
+}
+
+ul.tags > li > a {
+  text-decoration: none;
+}
+*/
+
+ul.tags > li > a:visited {
+  color: var(--link); /*tags don't get visited*/
+}
+
+ul.inline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em;
+}
+
+/* Table of Contents
+   ----------------- */
+.toc {
+  padding: 1em 0 1em 2em; /* top right bottom left */
+  float: right;
+  font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif; /* --xfont-heading */
+  background: var(--background);
+}
+
+@media only screen and (min-width: 768px) {
+    .toc {
+      max-width: 25em;
+    }
+}
+
+.toc > .header {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.toc > ul {
+  line-height: 150%;
+}
+
+.toc .toc-section-number {
+  color: var(--accent-1);
+  margin-right: 0.5em;
+}
+
+.toc a {
+  text-decoration: none;
+}
+
+.toc a:visited {
+  color: var(--link); /* toc links don't get visited */
+}
+
+.toc a:hover {
+  color: var(--accent-1); /* hover differently */
+}
+
+@media only screen and (max-width: 768px) {
+  .toc {
+    float: none;
+    padding: 1em 0; /* if we aren't floating right, we want to the
+                       padding to be even, but because the page is
+                       already small, we simply don't use left and
+                       right padding */
+  }
+}
+
+/* Posts
+   ----- */
+
+.post > header > h3 {
+  margin-bottom: 0;
+}
+
+.post > header > h3 > a {
+  color: var(--black);
+/* Do I need the links to be underlined? */
+  /* text-decoration: underline; */
+}
+
+/* .post > header > h3 > a:hover { */
+/*   color: var(--link); */
+/* } */
+
+.post > header > h3 > a:active {
+  color: var(--link-active);
+}
+
+.post > header > .post-metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 0.85em;
+  margin: 0.2em 0;
+  color: var(--gray);
+}
+
+.post > header > .post-metadata a:visited {
+  color: var(--link);
+}
+
+.post > section > p {
+  margin-top: 0;
+}
+
+.post time {
+  font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif; /* --xfont-heading */
+}
+
+/* Footnotes
+   ---------
+ */
+
+.footnote-ref:hover {
+    text-decoration: none; /* No underline for footnote links */
+}
+
+/* MATHJAX expressions can be spliced in with $$ latex syntax -- pandoc FTW */
+
+/* ROMES:TODO: Should post titles also be :active link-active? */
+
+
+/* Utils
+   -----
+ */
+
+@media only screen and (max-width: 768px) {
+    .hidden-small {
+        display: none;
+    }
+}
+
+.font-handwritten {
+    font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+}
+
+.smallcaps {
+    font-variant: small-caps;
+}

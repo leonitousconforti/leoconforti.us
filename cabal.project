@@ -1,0 +1,8 @@
+packages: ./
+
+-- https://github.com/haskell/haskell-language-server/issues/4590
+allow-newer: Cabal
+constraints: any.Cabal >= 3.16
+
+package hakyll
+    flags: +previewServer +watchServer
