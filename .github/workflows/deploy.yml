@@ -32,9 +32,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cabal-
 
-      - name: Update package index
-        run: cabal update
-
       - name: Build site
         run: cabal run exe:site -- build
 
