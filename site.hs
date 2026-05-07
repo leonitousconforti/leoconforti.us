@@ -58,11 +58,6 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
-    -- Copy papers
-    match "data/papers/**" $ do
-        route   idRoute
-        compile copyFileCompiler
-
     -- Compress css stylesheets
     match "css/*.css" $ do
         route   idRoute
@@ -83,9 +78,10 @@ main = hakyll $ do
         route $ customRoute (takeFileName . toFilePath)
         compile copyFileCompiler
 
-    -- Compile templates
-    match "templates/*" $
-        compile templateBodyCompiler
+    -- Copy papers
+    match "data/papers/**" $ do
+        route idRoute
+        compile copyFileCompiler
 
     tags <- buildTags "posts/**" (fromCapture "tags/*.html")
 
@@ -108,6 +104,7 @@ main = hakyll $ do
                   listField "posts" postCtx (pure posts) <>
                   constField "tag" tag <>
                   defaultContext
+
           makeItem ""
            >>= loadAndApplyTemplate "templates/posts-tagged-x.html" postsCtx
            >>= loadAndApplyTemplate "templates/default.html" postsCtx
@@ -217,6 +214,8 @@ main = hakyll $ do
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
+
+    match "templates/*" $ compile templateBodyCompiler
 
 --------------------------------------------------------------------------------
 
