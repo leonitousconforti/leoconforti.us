@@ -75,12 +75,26 @@ main = hakyll $ do
 
     -- Copy favicons to website root
     match "favicon/*" $ do
-        route $ customRoute (takeFileName . toFilePath)
+        route   $ customRoute (takeFileName . toFilePath)
         compile copyFileCompiler
+
+    -- Copy about
+    match "about.rst" $ do
+        route   $ setExtension "html"
+        compile $ pandocCompilerS
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
+
+    -- Copy contact
+    match "contact.markdown" $ do
+        route   $ setExtension "html"
+        compile $ pandocCompilerS
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
 
     -- Copy papers
     match "data/papers/**" $ do
-        route idRoute
+        route   idRoute
         compile copyFileCompiler
 
     tags <- buildTags "posts/**" (fromCapture "tags/*.html")
