@@ -8,10 +8,6 @@ dist-*
 cabal.project.local
 cabal.project.local~
 
-# nix
-result
-result-*
-
 # direnv
 .direnv
 

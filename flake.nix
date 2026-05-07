@@ -17,6 +17,7 @@
             ghc
             ghciwatch
             cabal-install
+            stylish-haskell
             haskell-language-server
             git
             zlib

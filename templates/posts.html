@@ -9,8 +9,8 @@ $for(posts)$
         <ul class="inline-tags">$tags$</ul>
       </div>
     </header>
-    <section>
+    $if(description)$<section style="margin-left: 1em; margin-top: 1em;">
       <p>$description$</p>
-    </section>
+    </section>$endif$
   </article>
 $endfor$
