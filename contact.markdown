@@ -1,5 +1,6 @@
 ---
 title: Contact
+toc: false
 ---
 
 The best address to mail me at is <leo@leoconforti.us>. Right now, I'm in the
