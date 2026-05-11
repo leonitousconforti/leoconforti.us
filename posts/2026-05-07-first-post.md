@@ -3,7 +3,7 @@ title: First Post
 
 description: My first blog post on my new blog.
 
-tags: haskell, graphics, game-engine
+tags: life
 
 preview: images/bubbles.jpeg
 preview-desc: Victoria and Leo
