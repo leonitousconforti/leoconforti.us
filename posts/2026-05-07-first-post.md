@@ -1,7 +1,7 @@
 ---
 title: First Post
 
-description: My first blog post on my new blog.
+description: My first blog post on my new blog
 
 tags: life
 
