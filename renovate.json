@@ -28,12 +28,12 @@
             "description": "Bump versioned build-depends bounds in leoconforti-us.cabal against Hackage",
             "matchManagers": ["haskell-cabal"],
             "addLabels": ["haskell"]
-        },
-        {
-            "description": "base is determined by the GHC version, not bumped on its own",
-            "matchManagers": ["haskell-cabal"],
-            "matchPackageNames": ["base"],
-            "enabled": false
         }
+        // {
+        //     "description": "base is determined by the GHC version, not bumped on its own",
+        //     "matchManagers": ["haskell-cabal"],
+        //     "matchPackageNames": ["base"],
+        //     "enabled": false
+        // }
     ]
 }
