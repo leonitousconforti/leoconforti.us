@@ -1,0 +1,39 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:recommended", ":dependencyDashboard", "helpers:pinGitHubActionDigests"],
+    "labels": ["dependencies", "renovate"],
+    "enabledManagers": ["github-actions", "nix", "haskell-cabal"],
+    "nix": {
+        "enabled": true
+    },
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": ["before 5am on monday"],
+        "commitMessageAction": "Refresh",
+        "addLabels": ["lockfile-maintenance"]
+    },
+    "packageRules": [
+        {
+            "description": "Pin GitHub Actions to a full commit SHA and keep that SHA at the latest release",
+            "matchManagers": ["github-actions"],
+            "pinDigests": true,
+            "addLabels": ["github-actions"]
+        },
+        {
+            "description": "Keep the Nix flake inputs (flake.lock) current",
+            "matchManagers": ["nix"],
+            "addLabels": ["nix"]
+        },
+        {
+            "description": "Bump versioned build-depends bounds in leoconforti-us.cabal against Hackage",
+            "matchManagers": ["haskell-cabal"],
+            "addLabels": ["haskell"]
+        },
+        {
+            "description": "base is determined by the GHC version, not bumped on its own",
+            "matchManagers": ["haskell-cabal"],
+            "matchPackageNames": ["base"],
+            "enabled": false
+        }
+    ]
+}
