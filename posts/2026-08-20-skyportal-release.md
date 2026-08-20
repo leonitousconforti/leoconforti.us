@@ -41,7 +41,7 @@ quality of life updates!
 
 ## Changes Behind the Scenes
 * **automate superobject creation** by @mcoughlin in <https://github.com/skyportal/skyportal/pull/6532>
-* **Drop unrecognized filter rows in <ATLAS forced photometry ingestion** by @thomasculino in <https://github.com/skyportal/skyportal/pull/6537>
+* **Drop unrecognized filter rows in ATLAS forced photometry ingestion** by @thomasculino in <https://github.com/skyportal/skyportal/pull/6537>
 * **make filter autosave settable and consistent** by @mcoughlin in <https://github.com/skyportal/skyportal/pull/6535>
 * **finish anyOf → enum transition** by @mcoughlin in <https://github.com/skyportal/skyportal/pull/6542>
 * **replace the confirmed boolean and gcn_crossmatch array with GcnEventObj.status** by @mcoughlin in <https://github.com/skyportal/skyportal/pull/6540>
