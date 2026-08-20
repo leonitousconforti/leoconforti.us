@@ -44,6 +44,10 @@ stylesheet = do
   tag "algorithms" "#7E3445"
   tag "low-level" "#7B403B"
   tag "life" "#EFAF8B"
+  tag "skyportal" "#27A3DE"
+  tag "python" "#FFD43B"
+  tag "news" "#DE289B"
+  tag "journal" "#E0C3D3"
 
 main :: IO ()
 main = T.putStr $ renderWith compact [] stylesheet
